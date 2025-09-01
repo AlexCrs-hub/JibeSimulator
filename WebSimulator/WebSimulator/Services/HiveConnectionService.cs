@@ -17,8 +17,8 @@ namespace WebSimulator.Services
                 Host = "d3d2aecf0c0045fa9b662493dd7e0f06.s1.eu.hivemq.cloud",
                 Port = 8883,
                 UseTLS = true,
-                UserName = "alexjibe",
-                Password = "Jibe123*",
+                UserName = Environment.GetEnvironmentVariable("HIVE_USER"),
+                Password = Environment.GetEnvironmentVariable("HIVE_PASS"),
             };
             var client = new HiveMQClient(options);
             HiveMQtt.Client.Results.ConnectResult connectResult;

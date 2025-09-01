@@ -7,8 +7,9 @@ internal class Program
     {
         var host = "d3d2aecf0c0045fa9b662493dd7e0f06.s1.eu.hivemq.cloud";
         var port = 8883;
-        var username = "alexjibe";
-        var password = "Jibe123*";
+        var username = Environment.GetEnvironmentVariable("HIVE_USER");
+        var password = Environment.GetEnvironmentVariable("HIVE_PASS");
+        Console.WriteLine($"Connect successful: {username}");
         var connection = new HiveConnection(host, port, username, password);
         var client = connection.CreateClient();
         HiveMQtt.Client.Results.ConnectResult connectResult;
