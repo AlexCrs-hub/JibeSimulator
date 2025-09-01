@@ -1,6 +1,7 @@
 ﻿using HiveMQtt.Client;
 using HiveMQtt.Client.Options;
 using HiveMQtt.MQTT5.ReasonCodes;
+using WebSimulator.WebSock;
 
 namespace WebSimulator.Services
 {
@@ -49,7 +50,7 @@ namespace WebSimulator.Services
             client.OnMessageReceived += (sender, args) =>
             {
                 string received_message = args.PublishMessage.PayloadAsString;
-                Console.WriteLine(received_message);
+                WebSocketHandler.BroadcastMessageAsync(received_message).Wait();
             };
             await client.SubscribeAsync("sensors/sensor1").ConfigureAwait(false);
             await client.SubscribeAsync("sensors/sensor2").ConfigureAwait(false);
