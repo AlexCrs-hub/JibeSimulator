@@ -21,7 +21,6 @@ internal class Program
             }
             else
             {
-                // FIXME: Add ToString
                 Console.WriteLine($"Connect failed: {connectResult}");
                 Environment.Exit(-1);
             }
