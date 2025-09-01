@@ -1,4 +1,7 @@
-﻿namespace WebSimulator.Models
+﻿using HiveMQtt.Client;
+using HiveMQtt.Client.Options;
+
+namespace WebSimulator.Models
 {
     public class HiveConnection
     {
